@@ -50,10 +50,10 @@ const usp = [
 ];
 
 const faq = [
-  { q: 'Berapa harga plafon PVC per meter di Bulukumba?', a: '[Jawaban: kisaran harga per batang / per m² dan faktor yang mempengaruhi — motif, ketebalan, merek.]' },
-  { q: 'Plafon PVC vs gypsum, mana lebih awet?', a: '[Jawaban perbandingan: ketahanan air, rayap, perawatan, biaya pasang.]' },
+  { q: 'Berapa harga plafon PVC per meter di Bulukumba?', a: 'Harga plafon PVC bergantung pada motif, panjang papan (3, 4 atau 6 m) dan jumlah yang dibutuhkan, jadi paling tepat dihitung sesuai ukuran ruangan Anda. Gunakan kalkulator di halaman ini untuk menghitung kebutuhan batang plafon dan lis, lalu kirim hasilnya ke admin kami lewat WhatsApp untuk mendapatkan harga terbaru beserta ongkos kirim.' },
+  { q: 'Plafon PVC vs gypsum, mana lebih awet?', a: 'Untuk ruangan yang lembap atau rawan bocor, plafon PVC umumnya lebih awet: tahan air, tidak lapuk atau berjamur, tidak dimakan rayap dan tidak perlu dicat ulang. Plafon gypsum unggul pada permukaan yang rata tanpa sambungan dan bisa dicat sesuai selera, tetapi mudah rusak bila terkena air. Pilihan terbaik tergantung kondisi atap dan tampilan yang Anda inginkan — admin kami siap membantu menyarankan.' },
   { q: 'Apakah Indoprima bisa antar ke lokasi?', a: 'Bisa. Kami mengirim ke Bulukumba, Bantaeng, Sinjai, Jeneponto, Bone, Makassar hingga Luwu Timur. Ongkos kirim dan jadwal pengiriman silakan dikonsultasikan dengan admin kami lewat WhatsApp.' },
-  { q: 'Apakah tersedia tukang pasang?', a: '[Jawaban: rekomendasi aplikator mitra, jika ada.]' },
+  { q: 'Apakah tersedia tukang pasang?', a: 'Untuk kebutuhan pemasangan, silakan konsultasikan dengan admin kami lewat WhatsApp. Sampaikan lokasi proyek serta ukuran ruangan agar admin dapat memberikan informasi yang sesuai.' },
 ];
 
 const PAGE_URL = `${SITE_URL}/plafon-pvc`;

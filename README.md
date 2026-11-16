@@ -54,7 +54,7 @@ public/img/           foto produk & toko
 ## Catatan konten
 
 Beberapa teks di mockup masih placeholder dan perlu diisi:
-- FAQ halaman Plafon PVC: jawaban harga, perbandingan dengan gypsum, dan tukang pasang (`[Jawaban: …]`).
-  Pertanyaan ini otomatis masuk schema `FAQPage` begitu jawabannya diisi (tidak diawali `[`).
+- FAQ halaman Plafon PVC sudah berisi jawaban dasar (versi awal, akan disempurnakan). Jawaban yang diawali `[`
+  dianggap placeholder dan otomatis tidak dimasukkan ke schema `FAQPage`.
 - Spesifikasi produk atap: `[tebal]`, `[warna]`, `[ukuran]`.
 - Tombol **Cari** di header belum punya fungsi (sama seperti di mockup).
