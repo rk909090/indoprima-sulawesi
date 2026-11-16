@@ -41,6 +41,11 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     images: [BUSINESS.image],
   },
+  // Verifikasi kepemilikan situs: Google Search Console & Bing Webmaster Tools.
+  verification: {
+    google: 'Pvz-NLe5IbNYnf0VTR0ECtKCVZGoNK69Ws64eWO0u-4',
+    other: { 'msvalidate.01': '562657F865C47C6F67C9A5FFBB31D2B4' },
+  },
   robots: {
     index: true,
     follow: true,
