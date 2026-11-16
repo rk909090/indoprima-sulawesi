@@ -29,7 +29,7 @@ export default function Home() {
 </div>
 </Link>
 <SearchForm />
-<a href="https://wa.me/6282226897783?text=Halo%20Indoprima%2C%20saya%20mau%20konsultasi" style={{ background: "#0E7A3F", color: "#FFFFFF", textDecoration: "none", fontWeight: "700", fontSize: "15px", padding: "13px 20px", borderRadius: "10px", display: "inline-flex", alignItems: "center", gap: "8px" }}>
+<a href="https://wa.me/6282226897783?text=Halo%20Indoprima%2C%20saya%20mau%20konsultasi" data-cta="header" style={{ background: "#0E7A3F", color: "#FFFFFF", textDecoration: "none", fontWeight: "700", fontSize: "15px", padding: "13px 20px", borderRadius: "10px", display: "inline-flex", alignItems: "center", gap: "8px" }}>
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-5.4A8.4 8.4 0 1 1 21 11.5z" /></svg>
 Konsultasi Admin</a>
 </div>
@@ -50,7 +50,7 @@ Konsultasi Admin</a>
 <span style={{ fontWeight: "800", fontSize: "24px", lineHeight: "1.2" }}>Hitung kebutuhan plafon PVC dalam 10 detik</span>
 <span style={{ fontWeight: "700", fontSize: "16px" }}>Coba sekarang →</span>
 </Link>
-<a href="https://wa.me/6282226897783?text=Halo%20Indoprima%2C%20saya%20kontraktor%2C%20mau%20tanya%20harga%20partai" style={{ flex: "1 1 180px", borderRadius: "20px", background: "#FFFFFF", color: "#13294B", textDecoration: "none", padding: "26px", display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "12px", border: "1px solid #E3E8EF" }}>
+<a href="https://wa.me/6282226897783?text=Halo%20Indoprima%2C%20saya%20kontraktor%2C%20mau%20tanya%20harga%20partai" data-cta="banner_kontraktor" style={{ flex: "1 1 180px", borderRadius: "20px", background: "#FFFFFF", color: "#13294B", textDecoration: "none", padding: "26px", display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "12px", border: "1px solid #E3E8EF" }}>
 <span style={{ fontWeight: "700", fontSize: "14px", letterSpacing: "0.06em", color: "#9A6200" }}>KONTRAKTOR &amp; APLIKATOR</span>
 <span style={{ fontWeight: "800", fontSize: "22px", lineHeight: "1.25" }}>Harga partai untuk proyek plafon &amp; atap</span>
 <span style={{ fontWeight: "700", fontSize: "16px", color: "#0E7A3F" }}>Minta penawaran →</span>
@@ -126,8 +126,8 @@ Konsultasi Admin</a>
 <p style={{ margin: "0", fontSize: "17px", lineHeight: "1.6", color: "#4A5566" }}>WhatsApp: <b>0822-2689-7783</b> / <b>0851-6653-9038</b></p>
 <p style={{ margin: "0", fontSize: "15px", lineHeight: "1.6", color: "#4A5566" }}>Salah satu toko bahan bangunan utama di Bulukumba — melayani rumah tangga, aplikator, kontraktor hingga toko bangunan, dengan pengiriman ke Bulukumba, Bantaeng, Sinjai, Jeneponto, Bone, Makassar hingga Luwu Timur.</p>
 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-<a href="https://www.google.com/maps/place/Toko+indoprima+(TACO)/@-5.548779,120.2072062,263m/data=!3m2!1e3!4b1!4m6!3m5!1s0x2dbbff84f67a9d03:0x6b80ca90106c0e2e!8m2!3d-5.5487803!4d120.2078513!16s%2Fg%2F11v0j873kl" style={{ border: "2px solid #13294B", color: "#13294B", textDecoration: "none", fontWeight: "700", fontSize: "16px", padding: "12px 18px", borderRadius: "10px" }}>Petunjuk Arah</a>
-<a href="https://wa.me/6282226897783?text=Halo%20Indoprima" style={{ background: "#0E7A3F", color: "#FFFFFF", textDecoration: "none", fontWeight: "700", fontSize: "16px", padding: "12px 18px", borderRadius: "10px" }}>Chat Admin</a>
+<a href="https://www.google.com/maps/place/Toko+indoprima+(TACO)/@-5.548779,120.2072062,263m/data=!3m2!1e3!4b1!4m6!3m5!1s0x2dbbff84f67a9d03:0x6b80ca90106c0e2e!8m2!3d-5.5487803!4d120.2078513!16s%2Fg%2F11v0j873kl" data-cta="lokasi" style={{ border: "2px solid #13294B", color: "#13294B", textDecoration: "none", fontWeight: "700", fontSize: "16px", padding: "12px 18px", borderRadius: "10px" }}>Petunjuk Arah</a>
+<a href="https://wa.me/6282226897783?text=Halo%20Indoprima" data-cta="lokasi" style={{ background: "#0E7A3F", color: "#FFFFFF", textDecoration: "none", fontWeight: "700", fontSize: "16px", padding: "12px 18px", borderRadius: "10px" }}>Chat Admin</a>
 </div>
 </div>
 </div>
@@ -147,7 +147,7 @@ Konsultasi Admin</a>
 <div style={{ maxWidth: "1240px", margin: "0 auto", padding: "16px 24px 28px", borderTop: "1px solid #23406E", fontSize: "14px" }}>© 2026 PT Indoprima Aluminium · Bulukumba</div>
 </footer>
 
-<a href="https://wa.me/6282226897783?text=Halo%20Indoprima" aria-label="Chat WhatsApp admin" style={{ position: "fixed", right: "24px", bottom: "24px", width: "60px", height: "60px", borderRadius: "999px", background: "#0E7A3F", color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 6px 20px rgba(11,26,51,0.3)" }}>
+<a href="https://wa.me/6282226897783?text=Halo%20Indoprima" aria-label="Chat WhatsApp admin" data-cta="floating" style={{ position: "fixed", right: "24px", bottom: "24px", width: "60px", height: "60px", borderRadius: "999px", background: "#0E7A3F", color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 6px 20px rgba(11,26,51,0.3)" }}>
 <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-5.4A8.4 8.4 0 1 1 21 11.5z" /></svg>
 </a>
 </div>

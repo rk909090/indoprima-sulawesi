@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { waText } from '@/lib/wa';
+import { track } from '@/lib/track';
 
 const inputStyle = { font: 'inherit', fontWeight: '500', fontSize: '18px', padding: '12px 14px', border: '1.5px solid #B9C4D3', borderRadius: '10px', color: '#1B2430' } as const;
 const labelStyle = { display: 'flex', flexDirection: 'column', gap: '6px', fontWeight: '600', fontSize: '15px', color: '#13294B' } as const;
@@ -13,6 +14,13 @@ export default function Calculator() {
   const [pRaw, setP] = useState<string>('4');
   const [lRaw, setL] = useState<string>('3');
   const [len, setLen] = useState(4);
+  // Event `use_calculator` dikirim sekali per kunjungan halaman, saat pengguna pertama kali mengubah input.
+  const used = useRef(false);
+  const markUsed = () => {
+    if (used.current) return;
+    used.current = true;
+    track('use_calculator', { cta_location: 'kalkulator', product_category: 'Plafon PVC Mozart' });
+  };
 
   const p = Math.max(0, parseFloat(pRaw) || 0);
   const l = Math.max(0, parseFloat(lRaw) || 0);
@@ -30,15 +38,15 @@ export default function Calculator() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '16px' }}>
           <label style={labelStyle}>Panjang ruangan (m)
-            <input type="number" min="0" step="0.1" value={pRaw} onChange={(e) => setP(e.target.value)} style={inputStyle} /></label>
+            <input type="number" min="0" step="0.1" value={pRaw} onChange={(e) => { setP(e.target.value); markUsed(); }} style={inputStyle} /></label>
           <label style={labelStyle}>Lebar ruangan (m)
-            <input type="number" min="0" step="0.1" value={lRaw} onChange={(e) => setL(e.target.value)} style={inputStyle} /></label>
+            <input type="number" min="0" step="0.1" value={lRaw} onChange={(e) => { setL(e.target.value); markUsed(); }} style={inputStyle} /></label>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           <span style={{ fontWeight: '600', fontSize: '15px', color: '#13294B' }}>Panjang papan PVC (lebar 20 cm)</span>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {[3, 4, 6].map((v) => (
-              <button key={v} type="button" onClick={() => setLen(v)} style={{ ...lenBase, ...(v === len ? lenOn : lenOff) }}>{v + ' m'}</button>
+              <button key={v} type="button" onClick={() => { setLen(v); markUsed(); }} style={{ ...lenBase, ...(v === len ? lenOn : lenOff) }}>{v + ' m'}</button>
             ))}
           </div>
         </div>
@@ -51,7 +59,7 @@ export default function Calculator() {
           <div style={{ background: '#1E3A64', borderRadius: '14px', padding: '18px', display: 'flex', flexDirection: 'column', gap: '4px' }}><span style={{ fontSize: '40px', fontWeight: '800', color: '#F5A623' }}>{batang}</span><span style={{ fontSize: '15px', color: '#DCE4EF' }}>batang plafon</span></div>
           <div style={{ background: '#1E3A64', borderRadius: '14px', padding: '18px', display: 'flex', flexDirection: 'column', gap: '4px' }}><span style={{ fontSize: '40px', fontWeight: '800', color: '#F5A623' }}>{lis}</span><span style={{ fontSize: '15px', color: '#DCE4EF' }}>batang lis (4 m)</span></div>
         </div>
-        <a href={waText(msg)} style={{ background: '#0E7A3F', color: '#FFFFFF', textDecoration: 'none', fontWeight: '700', fontSize: '17px', padding: '16px 20px', borderRadius: '12px', textAlign: 'center' }}>Kirim Hitungan ke Admin &amp; Minta Harga</a>
+        <a href={waText(msg)} data-cta="kalkulator" data-category="Plafon PVC Mozart" style={{ background: '#0E7A3F', color: '#FFFFFF', textDecoration: 'none', fontWeight: '700', fontSize: '17px', padding: '16px 20px', borderRadius: '12px', textAlign: 'center' }}>Kirim Hitungan ke Admin &amp; Minta Harga</a>
         <span style={{ fontSize: '14px', color: '#DCE4EF' }}>Admin akan konfirmasi motif, stok dan ongkos kirim.</span>
       </div>
     </div>

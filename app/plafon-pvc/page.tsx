@@ -3,9 +3,29 @@ import Link from 'next/link';
 import Calculator from '@/components/plafon/Calculator';
 import MotifCatalog from '@/components/plafon/MotifCatalog';
 import { waHarga } from '@/lib/wa';
+import JsonLd from '@/components/JsonLd';
+import { BUSINESS_ID, WEBSITE_ID } from '@/lib/schema';
+import { SITE_URL } from '@/lib/site';
+
+const TITLE = 'Plafon PVC Bulukumba — Indoprima';
+const DESCRIPTION =
+  'Plafon PVC Mozart di Bulukumba: anti rayap, tahan air, tanpa cat, 100+ motif. Hitung kebutuhan batang & lis dengan kalkulator gratis, lalu minta harga via WhatsApp.';
+const HERO_IMG = '/img/391002d6419bcc89477c3b6126382aa9.jpg';
 
 export const metadata: Metadata = {
-  title: 'Plafon PVC Bulukumba — Indoprima',
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: '/plafon-pvc' },
+  openGraph: {
+    type: 'website',
+    locale: 'id_ID',
+    url: '/plafon-pvc',
+    siteName: 'Indoprima Bulukumba',
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [{ url: HERO_IMG, alt: 'Plafon PVC putih bertingkat dengan bingkai motif kayu' }],
+  },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [HERO_IMG] },
 };
 
 const ornamen = [
@@ -36,8 +56,49 @@ const faq = [
   { q: 'Apakah tersedia tukang pasang?', a: '[Jawaban: rekomendasi aplikator mitra, jika ada.]' },
 ];
 
+const PAGE_URL = `${SITE_URL}/plafon-pvc`;
+
+// FAQ untuk schema hanya memuat pertanyaan yang jawabannya sudah final di halaman;
+// jawaban yang masih placeholder "[Jawaban: …]" sengaja tidak dimasukkan.
+const faqAnswered = faq.filter((f) => !f.a.startsWith('['));
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${PAGE_URL}#webpage`,
+      url: PAGE_URL,
+      name: TITLE,
+      description: DESCRIPTION,
+      inLanguage: 'id-ID',
+      isPartOf: { '@id': WEBSITE_ID },
+      about: { '@id': BUSINESS_ID },
+      primaryImageOfPage: `${SITE_URL}${HERO_IMG}`,
+      breadcrumb: { '@id': `${PAGE_URL}#breadcrumb` },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${PAGE_URL}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Beranda', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Plafon PVC', item: PAGE_URL },
+      ],
+    },
+    ...(faqAnswered.length
+      ? [{
+          '@type': 'FAQPage',
+          '@id': `${PAGE_URL}#faq`,
+          mainEntity: faqAnswered.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        }]
+      : []),
+  ],
+};
+
 export default function PlafonPage() {
   return (
+<>
+<JsonLd data={pageSchema} />
 <div style={{ containerType: "inline-size", fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif", color: "#1B2430", background: "#FFFFFF", minHeight: "100%" }}>
 
 {/* Nav */}
@@ -50,7 +111,7 @@ export default function PlafonPage() {
 <span style={{ fontSize: "13px", color: "#4A5566" }}>Aluminium &amp; Bahan Bangunan</span>
 </div>
 </Link>
-<a href="https://wa.me/6282226897783?text=Halo%20Indoprima%2C%20saya%20mau%20tanya%20plafon%20PVC" style={{ background: "#0E7A3F", color: "#FFFFFF", textDecoration: "none", fontWeight: "700", fontSize: "15px", padding: "12px 20px", borderRadius: "10px" }}>Chat Admin</a>
+<a href="https://wa.me/6282226897783?text=Halo%20Indoprima%2C%20saya%20mau%20tanya%20plafon%20PVC" data-cta="header" data-category="Plafon PVC Mozart" style={{ background: "#0E7A3F", color: "#FFFFFF", textDecoration: "none", fontWeight: "700", fontSize: "15px", padding: "12px 20px", borderRadius: "10px" }}>Chat Admin</a>
 </div>
 </header>
 
@@ -97,7 +158,7 @@ export default function PlafonPage() {
 <span style={{ color: "#9A6200", fontWeight: "700", fontSize: "14px", letterSpacing: "0.06em" }}>MEREK YANG KAMI JUAL</span>
 <h2 style={{ margin: "0", fontSize: "clamp(26px, 2.8cqi, 34px)", color: "#13294B" }}>Plafon PVC Mozart — tebal 8 mm, 100+ motif</h2>
 <p style={{ margin: "0", fontSize: "16px", lineHeight: "1.55", color: "#4A5566" }}>Pilihan motif kayu, polos, marmer hingga 3D. Di bawah ini motif populer — minta e-katalog lengkap lewat WhatsApp.</p>
-<a href="https://wa.me/6282226897783?text=Halo%20Indoprima%2C%20mohon%20kirim%20e-katalog%20Plafon%20PVC%20Mozart" style={{ alignSelf: "flex-start", background: "#0E7A3F", color: "#FFFFFF", textDecoration: "none", fontWeight: "700", fontSize: "16px", padding: "12px 20px", borderRadius: "10px" }}>Minta E-Katalog Lengkap</a>
+<a href="https://wa.me/6282226897783?text=Halo%20Indoprima%2C%20mohon%20kirim%20e-katalog%20Plafon%20PVC%20Mozart" data-cta="ekatalog" data-category="Plafon PVC Mozart" style={{ alignSelf: "flex-start", background: "#0E7A3F", color: "#FFFFFF", textDecoration: "none", fontWeight: "700", fontSize: "16px", padding: "12px 20px", borderRadius: "10px" }}>Minta E-Katalog Lengkap</a>
 </div>
 </div>
 <MotifCatalog />
@@ -117,7 +178,7 @@ export default function PlafonPage() {
 <div key={o.type} style={{ background: "#FFFFFF", border: "1px solid #E3E8EF", borderRadius: "16px", overflow: "hidden", display: "flex", flexDirection: "column" }}>
 <div style={{ aspectRatio: "1 / 1", background: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", padding: "14px", boxSizing: "border-box" }}><img src={o.img} alt={`Ornamen fitting lampu plafon type ${o.type}, bentuk ${o.shape}, warna ${o.color}`} loading="lazy" style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain", display: "block" }} /></div>
 <div style={{ padding: "12px 14px", display: "flex", flexDirection: "column", gap: "2px", borderTop: "1px solid #EEF2F7" }}><span style={{ fontWeight: "800", fontSize: "16px", color: "#13294B" }}>Type {o.type}</span><span style={{ fontSize: "14px", color: "#4A5566" }}>{o.sub}</span></div>
-<a href={waHarga('ornamen fitting lampu type ' + o.type)} style={{ margin: "0 14px 14px", textAlign: "center", border: "2px solid #0E7A3F", color: "#0E7A3F", textDecoration: "none", fontWeight: "700", fontSize: "14px", padding: "9px", borderRadius: "10px" }}>Tanya Harga</a>
+<a href={waHarga('ornamen fitting lampu type ' + o.type)} data-cta="ornamen" data-product={'Type ' + o.type} data-category="Ornamen Fitting Lampu" style={{ margin: "0 14px 14px", textAlign: "center", border: "2px solid #0E7A3F", color: "#0E7A3F", textDecoration: "none", fontWeight: "700", fontSize: "14px", padding: "9px", borderRadius: "10px" }}>Tanya Harga</a>
 </div>
 ))}
 </div>
@@ -141,5 +202,6 @@ export default function PlafonPage() {
 </div>
 </footer>
 </div>
+</>
   );
 }

@@ -23,7 +23,7 @@ export default function HeroSlider() {
         <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.55', color: '#DCE4EF' }}>{slide.text}</p>
         {internal
           ? <Link href={slide.href} style={ctaStyle}>{slide.cta}</Link>
-          : <a href={slide.href} style={ctaStyle}>{slide.cta}</a>}
+          : <a href={slide.href} data-cta="hero_slider" data-category={slide.tag} style={ctaStyle}>{slide.cta}</a>}
       </div>
       <div style={{ position: 'absolute', left: '44px', bottom: '24px', display: 'flex', gap: '8px', alignItems: 'center' }}>
         {slides.map((_, k) => (

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { catalog, navCats } from '@/lib/home-data';
 import { waHarga, waText } from '@/lib/wa';
+import { track } from '@/lib/track';
 import { useCatalog } from './CatalogContext';
 
 const LIMIT = 8;
@@ -26,7 +27,7 @@ export default function Catalog() {
       </div>
       <div role="tablist" aria-label="Kategori produk" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
         {navCats.map(([k, l]) => (
-          <button key={k} type="button" role="tab" aria-selected={k === cat} onClick={() => setCat(k)} style={{ ...pill, ...(k === cat ? pillOn : pillOff) }}>
+          <button key={k} type="button" role="tab" aria-selected={k === cat} onClick={() => { setCat(k); track('select_category', { product_category: catalog[k].title, cta_location: 'tab_katalog' }); }} style={{ ...pill, ...(k === cat ? pillOn : pillOff) }}>
             {l + ' (' + catalog[k].items.length + ')'}
           </button>
         ))}
@@ -52,7 +53,7 @@ export default function Catalog() {
             <div style={{ padding: '10px 12px 12px', display: 'flex', flexDirection: 'column', gap: '2px', flexGrow: '1', borderTop: '1px solid #EEF2F7' }}>
               <span style={{ fontWeight: '800', fontSize: '15px', color: '#13294B', lineHeight: '1.3' }}>{p.name}</span>
               <span style={{ fontSize: '13px', color: '#4A5566', lineHeight: '1.4' }}>{p.sub}</span>
-              <a href={waHarga(p.name + ' (' + cur.title + ')')} style={{ marginTop: '6px', fontWeight: '700', fontSize: '14px', color: '#0E7A3F' }}>Tanya harga →</a>
+              <a href={waHarga(p.name + ' (' + cur.title + ')')} data-cta="katalog" data-product={p.name} data-category={cur.title} style={{ marginTop: '6px', fontWeight: '700', fontSize: '14px', color: '#0E7A3F' }}>Tanya harga →</a>
             </div>
           </div>
         ))}
@@ -64,7 +65,7 @@ export default function Catalog() {
         {showAll && hidden > 0 && (
           <button type="button" onClick={() => setAll(false)} style={outlineBtn}>Tampilkan lebih sedikit</button>
         )}
-        <a href={waText('Halo Indoprima, mohon kirim katalog lengkap ' + cur.title)} style={{ background: '#0E7A3F', color: '#FFFFFF', textDecoration: 'none', fontWeight: '700', fontSize: '15px', padding: '13px 20px', borderRadius: '10px' }}>Minta katalog lengkap via WA</a>
+        <a href={waText('Halo Indoprima, mohon kirim katalog lengkap ' + cur.title)} data-cta="katalog_lengkap" data-category={cur.title} style={{ background: '#0E7A3F', color: '#FFFFFF', textDecoration: 'none', fontWeight: '700', fontSize: '15px', padding: '13px 20px', borderRadius: '10px' }}>Minta katalog lengkap via WA</a>
       </div>
     </section>
   );
