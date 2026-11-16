@@ -126,7 +126,7 @@ Konsultasi Admin</a>
 <p style={{ margin: "0", fontSize: "17px", lineHeight: "1.6", color: "#4A5566" }}>WhatsApp: <b>0822-2689-7783</b> / <b>0851-6653-9038</b></p>
 <p style={{ margin: "0", fontSize: "15px", lineHeight: "1.6", color: "#4A5566" }}>Salah satu toko bahan bangunan utama di Bulukumba — melayani rumah tangga, aplikator, kontraktor hingga toko bangunan, dengan pengiriman ke Bulukumba, Bantaeng, Sinjai, Jeneponto, Bone, Makassar hingga Luwu Timur.</p>
 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-<a href="https://www.google.com/maps/place/Toko+indoprima+(TACO)/@-5.548779,120.2072062,263m/data=!3m2!1e3!4b1!4m6!3m5!1s0x2dbbff84f67a9d03:0x6b80ca90106c0e2e!8m2!3d-5.5487803!4d120.2078513!16s%2Fg%2F11v0j873kl" data-cta="lokasi" style={{ border: "2px solid #13294B", color: "#13294B", textDecoration: "none", fontWeight: "700", fontSize: "16px", padding: "12px 18px", borderRadius: "10px" }}>Petunjuk Arah</a>
+<a href="https://www.google.com/maps/place/Indo+Prima+(Toko+Bahan+Bangunan+dan+Interior)/@-5.5487803,120.2078513,561m/data=!3m2!1e3!4b1!4m6!3m5!1s0x2dbbff84f67a9d03:0x6b80ca90106c0e2e!8m2!3d-5.5487803!4d120.2078513!16s%2Fg%2F11v0j873kl" data-cta="lokasi" style={{ border: "2px solid #13294B", color: "#13294B", textDecoration: "none", fontWeight: "700", fontSize: "16px", padding: "12px 18px", borderRadius: "10px" }}>Petunjuk Arah</a>
 <a href="https://wa.me/6282226897783?text=Halo%20Indoprima" data-cta="lokasi" style={{ background: "#0E7A3F", color: "#FFFFFF", textDecoration: "none", fontWeight: "700", fontSize: "16px", padding: "12px 18px", borderRadius: "10px" }}>Chat Admin</a>
 </div>
 </div>
